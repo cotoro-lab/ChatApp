@@ -16,7 +16,7 @@ namespace ChatAppCommon
         /// <summary>
         /// 通信データサイズ最大値
         /// </summary>
-        const int MAX_COMMUNICATION_DATA_SIZE = 5120;
+        public const int MAX_COMMUNICATION_DATA_SIZE = 5120;
 
         /// <summary>
         /// 通信データバッファ。

@@ -23,8 +23,7 @@
         </GroupBox>
         <GroupBox x:Name="gbConnectionLog" Header="ログ" Margin="20,233,20,48" FontSize="14">
             <Grid>
-                <TextBox x:Name="txtLog" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="528" Height="307" IsReadOnly="True"/>
-
+                <TextBox x:Name="txtLog" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="528" Height="307" IsReadOnly="True" VerticalScrollBarVisibility="Visible"/>
             </Grid>
         </GroupBox>
         <StatusBar x:Name="sbStatus" RenderTransformOrigin="0.488,4.654" Margin="0,600,0,0">

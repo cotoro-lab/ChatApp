@@ -172,6 +172,9 @@ namespace ServerApp
             {
                 // ログを追加
                 txtLog.Text = txtLog.Text + $"{DateTime.Now.ToString("HH:mm:ss:ff")}：{text}" + "\r\n";
+
+                // 末尾に移動
+                txtLog.ScrollToEnd();
             }));
         }
 
@@ -189,7 +192,7 @@ namespace ServerApp
                         // 非同期で接続を待ち受ける
                         Server.BeginAcceptTcpClient(AcceptCallback, null).AsyncWaitHandle.WaitOne(-1);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         AddLog("接続受け入れでエラーが発生しました。");
                         break;
@@ -289,6 +292,9 @@ namespace ServerApp
                 // サーバーが監視中の場合
                 if(Server != null && Server.Active)
                 {
+                    // 受信データの初期化
+                    data.Data = new byte[5120];
+
                     // 再度クライアントからのデータ受信を待機
                     data.Client.Socket.BeginReceive(data.Data, 0, data.Data.Length, SocketFlags.None, ReceiveCallback, data);
                 }

@@ -5,35 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientApp"
         mc:Ignorable="d"
-        Title="Client" Height="650" Width="600" ResizeMode="NoResize">
-    <Grid Margin="0,0,0,0">
-        <GroupBox x:Name="gbSetting" Header="設定" FontSize="14" Margin="20,10,20,507">
-            <Grid x:Name="gSetting">
-                <Label x:Name="lblAddress" Content="接続先IPアドレス" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.52,0.015" Height="30" Width="111"/>
-                <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Margin="126,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" InputScope="Number"/>
+        Title="Client" Height="650" Width="600" ResizeMode="NoResize" SizeToContent="WidthAndHeight"
+        Closing="ClientForm_Closing">
+    <Grid>
+        <Grid Width="600" Grid.IsSharedSizeScope="True">
+            <GroupBox x:Name="gbSetting" Header="設定" FontSize="14" Margin="20,10,20,495" Grid.IsSharedSizeScope="True">
+                <Grid x:Name="gSetting" Height="110">
+                    <Label x:Name="lblAddress" Content="接続先IPアドレス" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.52,0.015" Height="30" Width="111"/>
+                    <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Margin="126,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" InputScope="Number"/>
 
-                <Label x:Name="lblSourcePort" Content="接続元ポート番号" HorizontalAlignment="Left" Margin="292,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.52,0.015" Height="30" Width="111"/>
-                <TextBox x:Name="txtSourcePort" HorizontalAlignment="Left" Margin="408,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" InputScope="Number"/>
+                    <Label x:Name="lblSourcePort" Content="接続元ポート番号" HorizontalAlignment="Left" Margin="292,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.52,0.015" Height="30" Width="111"/>
+                    <TextBox x:Name="txtSourcePort" HorizontalAlignment="Left" Margin="408,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" InputScope="Number"/>
 
-                <Label x:Name="lblDestPort" Content="接続先ポート番号" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.52,0.015" Height="30" Width="111"/>
-                <TextBox x:Name="txtDestPort" HorizontalAlignment="Left" Margin="126,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" InputScope="Number"/>
+                    <Label x:Name="lblDestPort" Content="接続先ポート番号" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.52,0.015" Height="30" Width="111"/>
+                    <TextBox x:Name="txtDestPort" HorizontalAlignment="Left" Margin="126,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" InputScope="Number"/>
 
-                <Button x:Name="btnStart" Content="開始" HorizontalAlignment="Left" Margin="390,53,0,0" VerticalAlignment="Top" Height="30" Width="60" Click="btnStart_Click"/>
-                <Button x:Name="btnEnd" Content="切断" HorizontalAlignment="Left" Margin="467,53,0,0" VerticalAlignment="Top" Height="30" Width="60" Click="btnEnd_Click" IsEnabled="False"/>
-            </Grid>
-        </GroupBox>
-        <GroupBox x:Name="gbOperation" Header="操作" FontSize="14" Margin="20,127,20,380">
-            <Grid>
-                <Label x:Name="lblName" Content="名前" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.52,0.015" Height="30" Width="111"/>
-                <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="126,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" InputScope="Number"/>
+                    <Button x:Name="btnStart" Content="開始" HorizontalAlignment="Left" Margin="390,61,0,0" VerticalAlignment="Top" Height="30" Width="60" Click="btnStart_Click"/>
+                    <Button x:Name="btnEnd" Content="切断" HorizontalAlignment="Left" Margin="467,61,0,0" VerticalAlignment="Top" Height="30" Width="60" IsEnabled="False" Click="btnEnd_Click"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox x:Name="gbOperation" Header="操作" FontSize="14" Margin="20,144,20,375">
+                <Grid Height="96">
+                    <Label x:Name="lblName" Content="名前" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.52,0.015" Height="30" Width="111"/>
+                    <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="126,8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" FontSize="14" VerticalContentAlignment="Center" IsEnabled="False"/>
 
-                <Label x:Name="lblMessage" Content="メッセージ" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.52,0.015" Height="30" Width="111"/>
-                <TextBox x:Name="txtMessage" HorizontalAlignment="Left" Margin="126,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="328" Height="30" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" InputScope="Number"/>
-                
-                <Button x:Name="btnSend" Content="送信" HorizontalAlignment="Left" Margin="469,61,0,0" VerticalAlignment="Top" Height="30" Width="60" Click="btnEnd_Click" IsEnabled="False"/>
-            </Grid>
-        </GroupBox>
+                    <Label x:Name="lblMessage" Content="メッセージ" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.52,0.015" Height="30" Width="111"/>
+                    <TextBox x:Name="txtMessage" HorizontalAlignment="Left" Margin="126,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="328" Height="30" FontSize="14" VerticalContentAlignment="Center" IsEnabled="False"/>
 
-
+                    <Button x:Name="btnSend" Content="送信" HorizontalAlignment="Left" Margin="469,49,0,0" VerticalAlignment="Top" Height="30" Width="60" IsEnabled="False" Click="btnSend_Click"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox x:Name="gbConnectionLog" Header="ログ" FontSize="14" Margin="20,264,20,62">
+                <Grid Height="290">
+                    <TextBox x:Name="txtLog" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="528" Height="271" IsReadOnly="True" VerticalScrollBarVisibility="Visible"/>
+                </Grid>
+            </GroupBox>
+            <StatusBar x:Name="sbStatus" RenderTransformOrigin="0.505,0.453" Margin="0,587,0,0">
+                <Label x:Name="lblStatus" Content="状態：" RenderTransformOrigin="0.5,0.537" FontSize="14"/>
+            </StatusBar>
+        </Grid>
     </Grid>
 </Window>
